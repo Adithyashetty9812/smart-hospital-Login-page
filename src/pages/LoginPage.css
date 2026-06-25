@@ -1,0 +1,189 @@
+/* ============================================
+   Login page styles
+   ============================================ */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Top navigation bar ---- */
+.login-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-2xl);
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.login-navbar__brand {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-teal);
+}
+
+.login-navbar__links {
+  display: flex;
+  gap: var(--space-xl);
+  list-style: none;
+}
+
+.login-navbar__links a {
+  color: var(--color-ink);
+  font-size: 14px;
+}
+
+/* ---- Hero banner ---- */
+.login-hero {
+  background-color: var(--color-teal-light);
+  padding: var(--space-2xl) var(--space-2xl) var(--space-xl);
+  text-align: center;
+}
+
+.login-hero h1 {
+  color: var(--color-teal-dark);
+  font-size: 26px;
+  margin-bottom: var(--space-sm);
+}
+
+.login-hero p {
+  color: var(--color-gray);
+  font-size: 14px;
+}
+
+/* ---- Centered login card ---- */
+.login-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--space-2xl) var(--space-md);
+}
+
+.login-card {
+  background-color: var(--color-white);
+  width: 100%;
+  max-width: 400px;
+  padding: var(--space-xl);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.login-card h2 {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: var(--space-lg);
+  color: var(--color-ink);
+}
+
+/* ---- Role selector ---- */
+.login-field-label {
+  display: block;
+  font-size: 12px;
+  color: var(--color-gray);
+  margin-bottom: var(--space-sm);
+}
+
+.role-selector {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.role-button {
+  flex: 1;
+  padding: var(--space-sm) 0;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-border);
+  background-color: var(--color-white);
+  color: var(--color-ink);
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.role-button:hover {
+  border-color: var(--color-teal);
+}
+
+.role-button--active {
+  background-color: var(--color-teal);
+  border-color: var(--color-teal);
+  color: var(--color-white);
+}
+
+/* ---- Inputs ---- */
+.login-field {
+  margin-bottom: var(--space-lg);
+}
+
+.login-input {
+  width: 100%;
+  padding: 10px var(--space-md);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  font-size: 14px;
+  color: var(--color-ink);
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: var(--color-teal);
+  background-color: var(--color-white);
+}
+
+.login-input--error {
+  border-color: var(--color-red);
+}
+
+.login-field-error {
+  font-size: 12px;
+  color: var(--color-red);
+  margin-top: var(--space-xs);
+}
+
+/* ---- Submit button ---- */
+.login-submit {
+  width: 100%;
+  padding: 12px 0;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-teal);
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 700;
+  transition: background-color 0.15s ease;
+}
+
+.login-submit:hover:not(:disabled) {
+  background-color: var(--color-teal-dark);
+}
+
+.login-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ---- Server / auth error banner ---- */
+.login-alert {
+  background-color: var(--color-red-light);
+  border: 1px solid var(--color-red);
+  color: var(--color-red);
+  font-size: 13px;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-lg);
+}
+
+/* ---- Demo credentials helper ---- */
+.login-demo-hint {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+  font-size: 11.5px;
+  color: var(--color-gray-light);
+  text-align: center;
+  line-height: 1.6;
+}
