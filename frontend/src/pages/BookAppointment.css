@@ -1,0 +1,336 @@
+/* ==========================================
+   Book Appointment Page
+========================================== */
+
+.book-page{
+
+    min-height:100vh;
+
+    background:linear-gradient(180deg,#f4fbfb,#eef8ff);
+
+    padding:50px 0;
+
+}
+
+.book-container{
+
+    width:min(1100px,92%);
+
+    margin:auto;
+
+}
+
+.book-header{
+
+    text-align:center;
+
+    margin-bottom:45px;
+
+}
+
+.book-header h1{
+
+    font-size:42px;
+
+    color:#0F766E;
+
+    margin-bottom:12px;
+
+    font-weight:700;
+
+}
+
+.book-header p{
+
+    color:#6B7280;
+
+    font-size:17px;
+
+}
+
+/* ==========================================
+   Booking Card
+========================================== */
+
+.booking-card{
+
+    background:white;
+
+    border-radius:28px;
+
+    padding:40px;
+
+    box-shadow:0 18px 40px rgba(0,0,0,.08);
+
+}
+
+/* ==========================================
+   Form Layout
+========================================== */
+
+.booking-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+
+}
+
+.booking-field{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.booking-field label{
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+    color:#374151;
+
+}
+
+.booking-field input,
+
+.booking-field select{
+
+    padding:15px;
+
+    border-radius:14px;
+
+    border:1px solid #d1d5db;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.booking-field input:focus,
+
+.booking-field select:focus{
+
+    border-color:#14B8A6;
+
+    box-shadow:0 0 0 4px rgba(20,184,166,.15);
+
+}
+
+/* ==========================================
+   Doctor Card
+========================================== */
+
+.doctor-card{
+
+    margin-top:35px;
+
+    background:#f8ffff;
+
+    border:1px solid #d8f3f1;
+
+    border-radius:22px;
+
+    padding:30px;
+
+    transition:.3s;
+
+}
+
+.doctor-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 12px 28px rgba(20,184,166,.15);
+
+}
+
+.doctor-card h2{
+
+    color:#0F766E;
+
+    margin-bottom:15px;
+
+}
+
+.doctor-info{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+}
+
+.doctor-info p{
+
+    color:#4B5563;
+
+    font-size:15px;
+
+}
+
+.doctor-info strong{
+
+    color:#111827;
+
+}
+/* ==========================================
+   Action Buttons
+========================================== */
+
+.booking-actions{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:18px;
+
+    margin-top:40px;
+
+}
+
+.book-btn{
+
+    background:linear-gradient(
+        135deg,
+        #0F766E,
+        #14B8A6
+    );
+
+    color:white;
+
+    border:none;
+
+    padding:15px 32px;
+
+    border-radius:50px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.30s;
+
+}
+
+.book-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 28px rgba(20,184,166,.25);
+
+}
+
+.cancel-btn{
+
+    background:white;
+
+    color:#374151;
+
+    border:1px solid #D1D5DB;
+
+    padding:15px 32px;
+
+    border-radius:50px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.30s;
+
+}
+
+.cancel-btn:hover{
+
+    background:#F9FAFB;
+
+}
+
+/* ==========================================
+   Loading & Error
+========================================== */
+
+.booking-message{
+
+    text-align:center;
+
+    padding:30px;
+
+    color:#6B7280;
+
+    font-size:17px;
+
+}
+
+.booking-error{
+
+    color:#DC2626;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media(max-width:900px){
+
+    .booking-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .doctor-info{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .booking-card{
+
+        padding:25px;
+
+    }
+
+    .book-header h1{
+
+        font-size:32px;
+
+    }
+
+    .booking-actions{
+
+        flex-direction:column;
+
+    }
+
+    .book-btn,
+
+    .cancel-btn{
+
+        width:100%;
+
+    }
+
+}

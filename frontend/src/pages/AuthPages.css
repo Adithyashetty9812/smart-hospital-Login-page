@@ -1,0 +1,1441 @@
+/* =====================================================
+   MediCare+
+   Authentication Pages
+   Login • Register • Forgot Password
+===================================================== */
+
+/* =========================
+   Page Layout
+========================= */
+
+.auth-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(20,184,166,.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at bottom left,
+            rgba(14,165,233,.15),
+            transparent 35%
+        ),
+        var(--gradient-bg);
+
+}
+
+/* =========================
+   Navbar
+========================= */
+
+.auth-navbar{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 70px;
+
+    background:
+        rgba(255,255,255,.82);
+
+    backdrop-filter:blur(12px);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.4);
+
+    box-shadow:
+        0 6px 25px rgba(0,0,0,.05);
+
+}
+
+.auth-navbar__brand{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:var(--color-primary);
+
+    letter-spacing:.5px;
+
+}
+
+.auth-navbar__links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:45px;
+
+    list-style:none;
+
+}
+
+.auth-navbar__links button{
+
+    background:none;
+
+    border:none;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:var(--color-text);
+
+    position:relative;
+
+    transition:.3s;
+
+}
+
+.auth-navbar__links button:hover{
+
+    color:var(--color-primary);
+
+}
+
+.auth-navbar__links button::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:3px;
+
+    border-radius:50px;
+
+    background:var(--color-secondary);
+
+    transition:.35s;
+
+}
+
+.auth-navbar__links button:hover::after{
+
+    width:100%;
+
+}
+
+/* =========================
+   Hero
+========================= */
+
+.auth-hero{
+
+    text-align:center;
+
+    padding:90px 20px 55px;
+
+}
+
+.auth-hero h1{
+
+    font-size:52px;
+
+    font-weight:800;
+
+    color:var(--color-primary);
+
+    margin-bottom:18px;
+
+    line-height:1.2;
+
+}
+
+.auth-hero p{
+
+    max-width:700px;
+
+    margin:auto;
+
+    font-size:18px;
+
+    color:var(--color-text-light);
+
+    line-height:1.8;
+
+}
+/* =========================
+   Content Area
+========================= */
+
+.auth-content{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    padding:40px 20px 80px;
+
+}
+
+/* =========================
+   Authentication Card
+========================= */
+
+.auth-card{
+
+    width:100%;
+
+    max-width:470px;
+
+    background:
+        rgba(255,255,255,.82);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.45);
+
+    border-radius:28px;
+
+    padding:42px;
+
+    box-shadow:var(--shadow-lg);
+
+    transition:.35s;
+
+}
+
+.auth-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.auth-card h2{
+
+    text-align:center;
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:var(--color-primary);
+
+    margin-bottom:12px;
+
+}
+
+.auth-card__subtitle{
+
+    text-align:center;
+
+    color:var(--color-text-light);
+
+    margin-bottom:30px;
+
+    line-height:1.7;
+
+}
+
+/* =========================
+   Labels
+========================= */
+
+.auth-field{
+
+    margin-bottom:24px;
+
+}
+
+.auth-field-label{
+
+    display:block;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+    color:var(--color-text);
+
+}
+
+/* =========================
+   Inputs
+========================= */
+
+.auth-input{
+
+    width:100%;
+
+    padding:15px 18px;
+
+    border-radius:16px;
+
+    border:2px solid var(--color-border);
+
+    background:white;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.auth-input:hover{
+
+    border-color:var(--color-secondary);
+
+}
+
+.auth-input:focus{
+
+    border-color:var(--color-primary);
+
+    box-shadow:
+
+        0 0 0 5px rgba(20,184,166,.15);
+
+}
+
+.auth-input--error{
+
+    border-color:var(--color-danger);
+
+}
+
+.auth-field-error{
+
+    margin-top:8px;
+
+    color:var(--color-danger);
+
+    font-size:13px;
+
+}
+
+.auth-field-hint{
+
+    margin-top:8px;
+
+    color:var(--color-text-light);
+
+    font-size:12px;
+
+}
+
+/* =========================
+   Role Selector
+========================= */
+
+.role-selector{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-bottom:28px;
+
+}
+
+.role-button{
+
+    flex:1;
+
+    padding:14px;
+
+    background:white;
+
+    border:2px solid var(--color-border);
+
+    border-radius:16px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:var(--color-text);
+
+    transition:.3s;
+
+}
+
+.role-button:hover{
+
+    border-color:var(--color-primary);
+
+    transform:translateY(-2px);
+
+}
+
+.role-button--active{
+
+    background:var(--gradient-primary);
+
+    color:white;
+
+    border-color:transparent;
+
+    box-shadow:var(--shadow-md);
+
+}
+/* =========================
+   Submit Button
+========================= */
+
+.auth-submit{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:var(--gradient-primary);
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    transition:.35s;
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.auth-submit:hover:not(:disabled){
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.auth-submit:disabled{
+
+    opacity:.7;
+
+    cursor:not-allowed;
+
+}
+
+/* =========================
+   Alerts
+========================= */
+
+.auth-alert{
+
+    margin-bottom:24px;
+
+    padding:15px 18px;
+
+    border-radius:16px;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    animation:fadeIn .35s ease;
+
+}
+
+.auth-alert--error{
+
+    background:var(--color-danger-bg);
+
+    color:var(--color-danger);
+
+    border-left:5px solid var(--color-danger);
+
+}
+
+.auth-alert--success{
+
+    background:var(--color-success-bg);
+
+    color:var(--color-success);
+
+    border-left:5px solid var(--color-success);
+
+}
+
+/* =========================
+   Footer Links
+========================= */
+
+.auth-footer-links{
+
+    margin-top:28px;
+
+    padding-top:22px;
+
+    border-top:1px solid var(--color-border);
+
+    text-align:center;
+
+    line-height:2;
+
+    color:var(--color-text-light);
+
+}
+
+.auth-footer-links a{
+
+    color:var(--color-primary);
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.auth-footer-links a:hover{
+
+    color:var(--color-secondary);
+
+}
+
+/* =========================
+   Demo Hint
+========================= */
+
+.auth-demo-hint{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    color:var(--color-text-light);
+
+    font-size:13px;
+
+    line-height:1.8;
+
+}
+
+/* =========================
+   Animations
+========================= */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.auth-card{
+
+    animation:fadeIn .5s ease;
+
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media(max-width:900px){
+
+    .auth-navbar{
+
+        padding:16px 25px;
+
+    }
+
+    .auth-navbar__links{
+
+        gap:20px;
+
+    }
+
+    .auth-hero{
+
+        padding:60px 20px 40px;
+
+    }
+
+    .auth-hero h1{
+
+        font-size:38px;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .auth-navbar{
+
+        flex-direction:column;
+
+        gap:18px;
+
+    }
+
+    .auth-navbar__brand{
+
+        font-size:24px;
+
+    }
+
+    .auth-navbar__links{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .auth-card{
+
+        padding:28px;
+
+        border-radius:22px;
+
+    }
+
+    .auth-hero h1{
+
+        font-size:30px;
+
+    }
+
+    .auth-hero p{
+
+        font-size:15px;
+
+    }
+
+}
+/* =====================================================
+   Hero Buttons
+===================================================== */
+
+.hero-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    margin-top:40px;
+
+    flex-wrap:wrap;
+
+}
+
+.hero-primary-btn{
+
+    padding:16px 34px;
+
+    border-radius:50px;
+
+    background:var(--gradient-primary);
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.hero-primary-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.hero-secondary-btn{
+
+    padding:16px 34px;
+
+    border-radius:50px;
+
+    border:2px solid var(--color-primary);
+
+    background:white;
+
+    color:var(--color-primary);
+
+    font-size:16px;
+
+    font-weight:600;
+
+}
+
+.hero-secondary-btn:hover{
+
+    background:var(--color-primary);
+
+    color:white;
+
+    transform:translateY(-4px);
+
+}
+
+/* =====================================================
+   Statistics
+===================================================== */
+
+.hero-stats{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:0 auto 70px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+}
+
+.hero-stat-card{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:28px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow-md);
+
+    transition:.35s;
+
+}
+
+.hero-stat-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.hero-stat-card h2{
+
+    color:var(--color-primary);
+
+    font-size:38px;
+
+    margin-bottom:12px;
+
+}
+
+.hero-stat-card p{
+
+    color:var(--color-text-light);
+
+}
+
+/* =====================================================
+   Doctors Section
+===================================================== */
+
+.doctors-section{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:90px auto;
+
+    text-align:center;
+
+}
+
+.doctors-section h2{
+
+    font-size:40px;
+
+    color:var(--color-primary);
+
+    margin-bottom:15px;
+
+}
+
+.doctors-section>p{
+
+    color:var(--color-text-light);
+
+    margin-bottom:45px;
+
+}
+
+.doctor-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+
+}
+
+.doctor-card{
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:35px;
+
+    box-shadow:var(--shadow-md);
+
+    transition:.35s;
+
+}
+
+.doctor-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.doctor-avatar{
+
+    width:90px;
+
+    height:90px;
+
+    margin:auto;
+
+    margin-bottom:22px;
+
+    border-radius:50%;
+
+    background:var(--gradient-primary);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:38px;
+
+}
+
+.doctor-card h3{
+
+    margin-bottom:10px;
+
+    color:var(--color-primary);
+
+}
+
+.doctor-card p{
+
+    color:var(--color-text-light);
+
+}
+
+/* =====================================================
+   About
+===================================================== */
+
+.about-section{
+
+    width:90%;
+
+    max-width:1100px;
+
+    margin:80px auto;
+
+    text-align:center;
+
+}
+
+.about-section h2{
+
+    font-size:40px;
+
+    margin-bottom:20px;
+
+    color:var(--color-primary);
+
+}
+
+.about-section>p{
+
+    max-width:800px;
+
+    margin:auto;
+
+    color:var(--color-text-light);
+
+    line-height:1.8;
+
+}
+
+.about-features{
+
+    margin-top:45px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+}
+
+.about-features div{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow-md);
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.about-features div:hover{
+
+    transform:translateY(-6px);
+
+}
+
+/* =====================================================
+   Footer
+===================================================== */
+
+.auth-footer{
+
+    margin-top:80px;
+
+    padding:28px;
+
+    text-align:center;
+
+    background:var(--color-primary);
+
+    color:white;
+
+    font-size:15px;
+
+}
+/* ===========================================
+   Next Page Section
+=========================================== */
+
+.next-page-section{
+
+    width:90%;
+
+    max-width:900px;
+
+    margin:90px auto;
+
+    padding:60px;
+
+    text-align:center;
+
+    border-radius:28px;
+
+    background:white;
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.next-page-section h2{
+
+    font-size:42px;
+
+    color:var(--color-primary);
+
+    margin-bottom:20px;
+
+}
+
+.next-page-section p{
+
+    color:var(--color-text-light);
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+.next-page-btn{
+
+    margin-top:35px;
+
+    padding:18px 45px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:var(--gradient-primary);
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.next-page-btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+/* =====================================================
+   Modern Login Layout
+===================================================== */
+
+.modern-login-page{
+
+    min-height:100vh;
+
+    display:grid;
+
+    grid-template-columns:1.1fr 0.9fr;
+
+    background:#f4fbfb;
+
+}
+
+.login-left{
+
+    position:relative;
+
+    background:linear-gradient(
+        135deg,
+        #0f766e,
+        #14b8a6
+    );
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:80px;
+
+}
+
+.login-overlay{
+
+    max-width:520px;
+
+}
+
+.login-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:32px;
+
+    font-weight:700;
+
+    margin-bottom:50px;
+
+}
+
+.login-logo svg{
+
+    font-size:42px;
+
+}
+
+.login-left h1{
+
+    font-size:58px;
+
+    line-height:1.1;
+
+    margin-bottom:25px;
+
+    font-weight:800;
+
+}
+
+.login-left p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    opacity:.95;
+
+    margin-bottom:40px;
+
+}
+
+.login-feature-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.login-feature{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+.login-feature svg{
+
+    font-size:22px;
+
+}
+/* =====================================================
+   Login Right Side
+===================================================== */
+
+.login-right{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:60px;
+
+    background:linear-gradient(
+        180deg,
+        #f8ffff,
+        #eef8ff
+    );
+
+}
+
+.login-card{
+
+    width:100%;
+
+    max-width:480px;
+
+    background:rgba(255,255,255,.92);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:28px;
+
+    padding:45px;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.08);
+
+}
+
+.login-card h2{
+
+    font-size:34px;
+
+    color:#0F766E;
+
+    margin-bottom:10px;
+
+    font-weight:700;
+
+}
+
+.login-subtitle{
+
+    color:#6B7280;
+
+    margin-bottom:35px;
+
+    line-height:1.7;
+
+}
+
+.input-icon-group{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.input-icon-group svg:first-child{
+
+    position:absolute;
+
+    left:18px;
+
+    color:#6B7280;
+
+    font-size:16px;
+
+}
+
+.input-icon-group input{
+
+    width:100%;
+
+    padding:15px 48px;
+
+}
+
+.password-toggle{
+
+    position:absolute;
+
+    right:16px;
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    color:#6B7280;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:18px;
+
+}
+
+.password-toggle:hover{
+
+    color:#0F766E;
+
+}
+
+.login-links{
+
+    margin-top:25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:14px;
+
+}
+
+.login-links a{
+
+    color:#0F766E;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+}
+
+.login-links a:hover{
+
+    text-decoration:underline;
+
+}
+/* =====================================================
+   Responsive Login
+===================================================== */
+
+@media (max-width: 1100px){
+
+    .modern-login-page{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .login-left{
+
+        padding:60px 40px;
+
+        text-align:center;
+
+    }
+
+    .login-overlay{
+
+        max-width:700px;
+
+    }
+
+    .login-feature{
+
+        justify-content:center;
+
+    }
+
+    .login-right{
+
+        padding:40px 25px 60px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .login-left{
+
+        display:none;
+
+    }
+
+    .modern-login-page{
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+        min-height:100vh;
+
+        padding:30px 15px;
+
+    }
+
+    .login-right{
+
+        width:100%;
+
+        padding:0;
+
+    }
+
+    .login-card{
+
+        max-width:450px;
+
+        padding:35px 28px;
+
+    }
+
+    .login-card h2{
+
+        font-size:28px;
+
+    }
+
+    .login-links{
+
+        flex-direction:column;
+
+        gap:12px;
+
+        text-align:center;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .login-card{
+
+        padding:28px 22px;
+
+    }
+
+    .role-selector{
+
+        flex-direction:column;
+
+    }
+
+    .role-button{
+
+        width:100%;
+
+    }
+
+}

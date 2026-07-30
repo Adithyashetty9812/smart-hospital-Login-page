@@ -1,0 +1,71 @@
+/* ==========================================
+   Profile Page
+========================================== */
+
+.profile-card{
+    max-width:700px;
+    margin:30px auto;
+    background:#fff;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.profile-label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#1e293b;
+}
+
+.profile-card input{
+    width:100%;
+    padding:14px 16px;
+    border:1px solid #dbe4ee;
+    border-radius:12px;
+    font-size:15px;
+    transition:.25s;
+    outline:none;
+    margin-bottom:18px;
+}
+
+.profile-card input:focus{
+    border-color:#14b8a6;
+    box-shadow:0 0 0 4px rgba(20,184,166,.15);
+}
+
+.profile-card input:disabled{
+    background:#f8fafc;
+    color:#64748b;
+}
+
+.profile-card button{
+    margin-top:10px;
+}
+.profile-actions{
+    display:flex;
+    gap:16px;
+    margin-top:28px;
+    flex-wrap:wrap;
+}
+
+.profile-actions button{
+    margin-left:0 !important;
+    min-width:170px;
+}
+
+@media (max-width:768px){
+
+    .profile-card{
+        padding:28px;
+    }
+
+    .profile-actions{
+        flex-direction:column;
+    }
+
+    .profile-actions button{
+        width:100%;
+    }
+
+}

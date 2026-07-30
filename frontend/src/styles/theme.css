@@ -1,0 +1,231 @@
+/* ============================================
+   MediCare+ Design System
+   Global Theme
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+
+  /* =========================
+     Primary Colors
+  ========================= */
+
+  --color-primary: #0F766E;
+  --color-primary-dark: #0B5F59;
+  --color-primary-light: #CCFBF1;
+
+  --color-secondary: #14B8A6;
+  --color-accent: #06B6D4;
+
+  /* =========================
+     Status Colors
+  ========================= */
+
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+
+  --color-success-bg: #ECFDF5;
+  --color-warning-bg: #FFFBEB;
+  --color-danger-bg: #FEF2F2;
+
+  /* =========================
+     Text
+  ========================= */
+
+  --color-text: #1F2937;
+  --color-text-light: #6B7280;
+  --color-white: #FFFFFF;
+
+  /* =========================
+     Backgrounds
+  ========================= */
+
+  --color-bg: #F4FBFD;
+
+  --color-card: #FFFFFF;
+
+  --color-border: #D8EEF2;
+
+  /* =========================
+     Gradient
+  ========================= */
+
+  --gradient-primary:
+      linear-gradient(
+          135deg,
+          #14B8A6,
+          #0F766E
+      );
+
+  --gradient-bg:
+      linear-gradient(
+          135deg,
+          #F8FCFD,
+          #EEF9FB,
+          #F6FBFF
+      );
+
+  /* =========================
+     Shadows
+  ========================= */
+
+  --shadow-sm:
+      0 4px 12px rgba(0,0,0,.05);
+
+  --shadow-md:
+      0 8px 24px rgba(15,118,110,.12);
+
+  --shadow-lg:
+      0 15px 40px rgba(15,118,110,.18);
+
+  /* =========================
+     Radius
+  ========================= */
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  /* =========================
+     Spacing
+  ========================= */
+
+  --space-xs: 5px;
+  --space-sm: 10px;
+  --space-md: 18px;
+  --space-lg: 28px;
+  --space-xl: 40px;
+  --space-2xl: 60px;
+
+  /* =========================
+     Font
+  ========================= */
+
+  --font-base:
+      "Poppins",
+      sans-serif;
+
+}
+
+/* ============================================
+   Global
+============================================ */
+
+*{
+
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+
+}
+
+html,
+body{
+
+  font-family:var(--font-base);
+
+  background:var(--gradient-bg);
+
+  color:var(--color-text);
+
+  min-height:100vh;
+
+  scroll-behavior:smooth;
+
+}
+
+#root{
+
+  min-height:100vh;
+
+}
+
+a{
+
+  color:inherit;
+
+  text-decoration:none;
+
+}
+
+button{
+
+  font-family:inherit;
+
+  cursor:pointer;
+
+  transition:.3s ease;
+
+  border:none;
+
+}
+
+button:hover{
+
+  transform:translateY(-2px);
+
+}
+
+input,
+select,
+textarea{
+
+  font-family:inherit;
+
+  transition:.25s;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+
+  outline:none;
+
+  border-color:var(--color-secondary);
+
+  box-shadow:
+      0 0 0 4px rgba(20,184,166,.15);
+
+}
+
+::selection{
+
+  background:var(--color-secondary);
+
+  color:white;
+
+}
+
+/* ============================================
+   Scrollbar
+============================================ */
+
+::-webkit-scrollbar{
+
+  width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+  background:#ECFDFD;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+  background:var(--color-secondary);
+
+  border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+  background:var(--color-primary);
+
+}
